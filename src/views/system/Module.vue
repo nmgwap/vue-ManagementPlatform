@@ -15,36 +15,36 @@
       <el-col :span="4"> </el-col>
       <el-col :span="6">
         <div class="mod-btnbox">
-          <el-button type="primary">全部展开</el-button>
-          <el-button type="primary">全部压缩</el-button>
+          <el-button size="small" type="primary">全部展开</el-button>
+          <el-button size="small" type="primary">全部压缩</el-button>
         </div>
         <el-tree class="treeclass" ref="tree" :data="treeData" default-expand-all="" :props="defaultProps" @node-click="nodeclick" @check-change="handleClick" check-strictly node-key="id" show-checkbox></el-tree>
       </el-col>
       <el-col :span="18">
         <div class="mod-btnbox">
-          <el-button type="primary" icon="el-icon-plus" @click="addModule">添加</el-button>
+          <el-button size="small" type="primary" icon="el-icon-plus" @click="addModule">添加</el-button>
         </div>
         <el-form ref="form" :model="form" label-width="80px" :rules="rules">
           <el-form-item label="父级菜单" prop="parentId">
-            <el-select v-model="form.parentId" placeholder="请选择" class="selectw">
+            <el-select size="small" v-model="form.parentId" placeholder="请选择" class="selectw">
               <el-option v-for="parm in fmenu" :key="parm.id" :label="parm.name" :value="parm.id"></el-option>
             </el-select>
           </el-form-item>
           <el-form-item label="菜单名称" prop="moduleName">
-            <el-input v-model="form.moduleName"></el-input>
+            <el-input size="small" v-model="form.moduleName"></el-input>
           </el-form-item>
           <el-form-item label="图标" prop="moduleIcon">
-            <el-input v-model="form.moduleIcon"></el-input>
+            <el-input size="small" v-model="form.moduleIcon"></el-input>
           </el-form-item>
           <el-form-item label="URL" prop="moduleUrl">
-            <el-input v-model="form.moduleUrl"></el-input>
+            <el-input size="small" v-model="form.moduleUrl"></el-input>
           </el-form-item>
           <el-form-item label="顺序" prop="moduleOrder">
-            <el-input v-model="form.moduleOrder"></el-input>
+            <el-input size="small" v-model="form.moduleOrder"></el-input>
           </el-form-item>
           <el-form-item>
-            <el-button type="primary" @click="saveModule('form')">保存</el-button>
-            <el-button type="primary" v-show="showdelete" @click="deleteModule">删除</el-button>
+            <el-button size="small" type="primary" @click="saveModule('form')">保存</el-button>
+            <el-button size="small" type="primary" v-show="showdelete" @click="deleteModule">删除</el-button>
           </el-form-item>
         </el-form>
       </el-col>
@@ -122,77 +122,78 @@ export default {
     getdata() {
       ModuleList()
         .then(res => {
-          this.treeData = [{
-                "id": 1,
-                "pId": 0,
-                "name": "平台顶级",
-                "open": true,
-                "checked": false
+          this.treeData = [
+            {
+              id: 1,
+              pId: 0,
+              name: '平台顶级',
+              open: true,
+              checked: false
             },
             {
-                "id": 2,
-                "pId": 1,
-                "name": "一层",
-                "open": true,
-                "checked": false
+              id: 2,
+              pId: 1,
+              name: '一层',
+              open: true,
+              checked: false
             },
             {
-                "id": 3,
-                "pId": 1,
-                "name": "一层",
-                "open": true,
-                "checked": false
+              id: 3,
+              pId: 1,
+              name: '一层',
+              open: true,
+              checked: false
             },
             {
-                "id": 12,
-                "pId": 1,
-                "name": "一层",
-                "open": true,
-                "checked": false
+              id: 12,
+              pId: 1,
+              name: '一层',
+              open: true,
+              checked: false
             },
             {
-                "id": 13,
-                "pId": 1,
-                "name": "一层",
-                "open": true,
-                "checked": false
+              id: 13,
+              pId: 1,
+              name: '一层',
+              open: true,
+              checked: false
             },
             {
-                "id": 17,
-                "pId": 1,
-                "name": "一层",
-                "open": true,
-                "checked": false
+              id: 17,
+              pId: 1,
+              name: '一层',
+              open: true,
+              checked: false
             },
             {
-                "id": 4,
-                "pId": 2,
-                "name": "一层",
-                "open": true,
-                "checked": false
+              id: 4,
+              pId: 2,
+              name: '一层',
+              open: true,
+              checked: false
             },
             {
-                "id": 5,
-                "pId": 2,
-                "name": "一层",
-                "open": true,
-                "checked": false
+              id: 5,
+              pId: 2,
+              name: '一层',
+              open: true,
+              checked: false
             },
             {
-                "id": 6,
-                "pId": 2,
-                "name": "一层",
-                "open": true,
-                "checked": false
+              id: 6,
+              pId: 2,
+              name: '一层',
+              open: true,
+              checked: false
             },
             {
-                "id": 7,
-                "pId": 2,
-                "name": "一层",
-                "open": true,
-                "checked": false
+              id: 7,
+              pId: 2,
+              name: '一层',
+              open: true,
+              checked: false
             }
-        ]
+          ]
         })
         .catch(err => {
           this.loading = false

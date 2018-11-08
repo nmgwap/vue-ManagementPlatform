@@ -11,15 +11,15 @@
     <!-- 搜索筛选 -->
     <el-form :inline="true" :model="formInline" class="user-search">
       <el-form-item label="搜索：">
-        <el-input v-model="formInline.machineNo" placeholder="输入终端号"></el-input>
+        <el-input size="small" v-model="formInline.machineNo" placeholder="输入终端号"></el-input>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" icon="el-icon-search" @click="search">搜索</el-button>
-        <el-button type="primary" icon="el-icon-plus" @click="handleEdit()">添加</el-button>
+        <el-button size="small" type="primary" icon="el-icon-search" @click="search">搜索</el-button>
+        <el-button size="small" type="primary" icon="el-icon-plus" @click="handleEdit()">添加</el-button>
       </el-form-item>
     </el-form>
     <!--列表-->
-    <el-table :data="listData" highlight-current-row v-loading="loading" border element-loading-text="拼命加载中" style="width: 100%;">
+    <el-table size="small" :data="listData" highlight-current-row v-loading="loading" border element-loading-text="拼命加载中" style="width: 100%;">
       <el-table-column align="center" type="selection" width="60">
       </el-table-column>
       <el-table-column sortable prop="machineNo" label="终端号" width="200">
@@ -51,29 +51,29 @@
     <el-dialog :title="title" :visible.sync="editFormVisible" width="30%" @click="closeDialog">
       <el-form label-width="120px" :model="editForm" :rules="rules" ref="editForm">
         <el-form-item label="终端号" prop="machineNo">
-          <el-input v-model="editForm.machineNo" auto-complete="off" placeholder="请输入终端号"></el-input>
+          <el-input size="small" v-model="editForm.machineNo" auto-complete="off" placeholder="请输入终端号"></el-input>
         </el-form-item>
         <el-form-item label="支付方式" prop="payType">
-          <el-select v-model="editForm.payType" placeholder="请选择" class="userRole">
+          <el-select size="small" v-model="editForm.payType" placeholder="请选择" class="userRole">
             <el-option v-for="type in payType" :label="type.key" :value="type.value" :key="type.value"></el-option>
           </el-select>
         </el-form-item>
         <el-form-item label="配置序号" prop="configId">
-          <el-input v-model="editForm.configId" auto-complete="off" placeholder="请输入配置序号"></el-input>
+          <el-input size="small" v-model="editForm.configId" auto-complete="off" placeholder="请输入配置序号"></el-input>
         </el-form-item>
         <el-form-item label="显示名称" prop="configName">
-          <el-input v-model="editForm.configName" auto-complete="off" placeholder="请输入显示名称"></el-input>
+          <el-input size="small" v-model="editForm.configName" auto-complete="off" placeholder="请输入显示名称"></el-input>
         </el-form-item>
         <el-form-item label="状态" prop="payOpen">
-          <el-select v-model="editForm.payOpen" placeholder="请选择" class="userRole">
+          <el-select size="small" v-model="editForm.payOpen" placeholder="请选择" class="userRole">
             <el-option label="正常" value="T"></el-option>
             <el-option label="禁用" value="N"></el-option>
           </el-select>
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
-        <el-button @click="closeDialog">取消</el-button>
-        <el-button type="primary" :loading="loading" class="title" @click="submitForm('editForm')">保存</el-button>
+        <el-button size="small" @click="closeDialog">取消</el-button>
+        <el-button size="small" type="primary" :loading="loading" class="title" @click="submitForm('editForm')">保存</el-button>
       </div>
     </el-dialog>
   </div>

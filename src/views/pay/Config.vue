@@ -11,23 +11,23 @@
     <!-- 搜索筛选 -->
     <el-form :inline="true" :model="formInline" class="user-search">
       <el-form-item label="搜索：">
-        <el-input v-model="formInline.name" placeholder="输入名称"></el-input>
+        <el-input size="small" v-model="formInline.name" placeholder="输入名称"></el-input>
       </el-form-item>
       <el-form-item>
-        <el-select v-model="formInline.payType" placeholder="请选择">
+        <el-select size="small" v-model="formInline.payType" placeholder="请选择">
           <el-option v-for="type in payType" :label="type.key" :value="type.value" :key="type.value"></el-option>
         </el-select>
       </el-form-item>
       <el-form-item label="">
-        <el-input v-model="formInline.partner" placeholder="输入商户号"></el-input>
+        <el-input size="small" v-model="formInline.partner" placeholder="输入商户号"></el-input>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" icon="el-icon-search" @click="search">搜索</el-button>
-        <el-button type="primary" icon="el-icon-plus" @click="handleEdit()">添加</el-button>
+        <el-button size="small" type="primary" icon="el-icon-search" @click="search">搜索</el-button>
+        <el-button size="small" type="primary" icon="el-icon-plus" @click="handleEdit()">添加</el-button>
       </el-form-item>
     </el-form>
     <!--列表-->
-    <el-table :data="listData" highlight-current-row v-loading="loading" border element-loading-text="拼命加载中" style="width: 100%;">
+    <el-table size="small" :data="listData" highlight-current-row v-loading="loading" border element-loading-text="拼命加载中" style="width: 100%;">
       <el-table-column align="center" type="index" width="60">
       </el-table-column>
       <el-table-column sortable prop="name" label="名称" width="200" show-overflow-tooltip>
@@ -63,47 +63,47 @@
     <el-dialog :title="title" :visible.sync="editFormVisible" width="30%" @click="closeDialog('editForm')">
       <el-form label-width="120px" :model="editForm" :rules="rules" ref="editForm">
         <el-form-item label="名称" prop="name">
-          <el-input v-model="editForm.name" auto-complete="off" placeholder="请输入名称"></el-input>
+          <el-input size="small" v-model="editForm.name" auto-complete="off" placeholder="请输入名称"></el-input>
         </el-form-item>
         <el-form-item label="支付类型" prop="payType">
-          <el-select v-model="editForm.payType" placeholder="请选择" class="userRole">
+          <el-select size="small" v-model="editForm.payType" placeholder="请选择" class="userRole">
             <el-option v-for="type in payType" :label="type.key" :value="type.value" :key="type.value"></el-option>
           </el-select>
         </el-form-item>
         <el-form-item label="商户号" prop="partner">
-          <el-input v-model="editForm.partner" auto-complete="off" placeholder="请输入商户号"></el-input>
+          <el-input size="small" v-model="editForm.partner" auto-complete="off" placeholder="请输入商户号"></el-input>
         </el-form-item>
         <el-form-item label="微信子商户" prop="subMchId">
-          <el-input v-model="editForm.subMchId" auto-complete="off" placeholder="请输入微信子商户"></el-input>
+          <el-input size="small" v-model="editForm.subMchId" auto-complete="off" placeholder="请输入微信子商户"></el-input>
         </el-form-item>
         <el-form-item label="应用ID" prop="appid">
-          <el-input v-model="editForm.appid" auto-complete="off" placeholder="请输入应用ID"></el-input>
+          <el-input size="small" v-model="editForm.appid" auto-complete="off" placeholder="请输入应用ID"></el-input>
         </el-form-item>
         <el-form-item label="通知回调" prop="notifyUrl">
-          <el-input v-model="editForm.notifyUrl" auto-complete="off" placeholder="请输入通知回调"></el-input>
+          <el-input size="small" v-model="editForm.notifyUrl" auto-complete="off" placeholder="请输入通知回调"></el-input>
         </el-form-item>
         <el-form-item label="加密类型" prop="signType">
-          <el-input v-model="editForm.signType" auto-complete="off" placeholder="请输入加密类型"></el-input>
+          <el-input size="small" v-model="editForm.signType" auto-complete="off" placeholder="请输入加密类型"></el-input>
         </el-form-item>
         <el-form-item label="商户签名密钥" prop="partnerKey">
-          <el-input v-model="editForm.partnerKey" auto-complete="off" placeholder="请输入商户签名密钥"></el-input>
+          <el-input size="small" v-model="editForm.partnerKey" auto-complete="off" placeholder="请输入商户签名密钥"></el-input>
         </el-form-item>
         <el-form-item label="支付宝卖家" prop="sellerUserId">
-          <el-input v-model="editForm.sellerUserId" auto-complete="off" placeholder="请输入支付宝卖家"></el-input>
+          <el-input size="small" v-model="editForm.sellerUserId" auto-complete="off" placeholder="请输入支付宝卖家"></el-input>
         </el-form-item>
         <el-form-item label="微信证书路径" prop="certPath">
-          <el-input v-model="editForm.certPath" auto-complete="off" placeholder="请输入微信证书路径"></el-input>
+          <el-input size="small" v-model="editForm.certPath" auto-complete="off" placeholder="请输入微信证书路径"></el-input>
         </el-form-item>
         <el-form-item label="微信证书密码" prop="certPassword">
-          <el-input v-model="editForm.certPassword" auto-complete="off" placeholder="请输入微信证书密码"></el-input>
+          <el-input size="small" v-model="editForm.certPassword" auto-complete="off" placeholder="请输入微信证书密码"></el-input>
         </el-form-item>
         <el-form-item label="支付宝私钥" prop="rsaKey">
-          <el-input v-model="editForm.rsaKey" auto-complete="off" placeholder="请输入支付宝私钥"></el-input>
+          <el-input size="small" v-model="editForm.rsaKey" auto-complete="off" placeholder="请输入支付宝私钥"></el-input>
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
-        <el-button @click="closeDialog('editForm')">取消</el-button>
-        <el-button type="primary" :loading="loading" class="title" @click="submitForm('editForm')">保存</el-button>
+        <el-button size="small" @click="closeDialog('editForm')">取消</el-button>
+        <el-button size="small" type="primary" :loading="loading" class="title" @click="submitForm('editForm')">保存</el-button>
       </div>
     </el-dialog>
   </div>

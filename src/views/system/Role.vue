@@ -12,18 +12,18 @@
     <el-form :inline="true" :model="formInline" class="user-search">
 
       <el-form-item label="搜索：">
-        <el-input v-model="formInline.roleName" placeholder="输入角色名称"></el-input>
+        <el-input size="small" v-model="formInline.roleName" placeholder="输入角色名称"></el-input>
       </el-form-item>
       <el-form-item label="">
-        <el-input v-model="formInline.roleNo" placeholder="输入角色代码"></el-input>
+        <el-input size="small" v-model="formInline.roleNo" placeholder="输入角色代码"></el-input>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" icon="el-icon-search" @click="search">搜索</el-button>
-        <el-button type="primary" icon="el-icon-plus" @click="handleEdit()">添加</el-button>
+        <el-button size="small" type="primary" icon="el-icon-search" @click="search">搜索</el-button>
+        <el-button size="small" type="primary" icon="el-icon-plus" @click="handleEdit()">添加</el-button>
       </el-form-item>
     </el-form>
     <!--列表-->
-    <el-table :data="listData" highlight-current-row v-loading="loading" border element-loading-text="拼命加载中" style="width: 100%;">
+    <el-table size="small" :data="listData" highlight-current-row v-loading="loading" border element-loading-text="拼命加载中" style="width: 100%;">
       <el-table-column align="center" type="selection" width="60">
       </el-table-column>
       <el-table-column sortable prop="roleName" label="角色名称" width="300">
@@ -33,7 +33,6 @@
       <el-table-column sortable prop="editTime" label="修改时间" width="300">
         <template slot-scope="scope">
           <div>{{scope.row.editTime|timestampToTime}}</div>
-          </el-switch>
         </template>
       </el-table-column>
       <el-table-column sortable prop="editUser" label="修改人" width="300">
@@ -52,18 +51,18 @@
     <el-dialog :title="title" :visible.sync="editFormVisible" width="30%" @click='closeDialog("edit")'>
       <el-form label-width="120px" :model="editForm" ref="editForm" :rules="rules">
         <el-form-item label="系统编码" prop="systemNo">
-          <el-input v-model="editForm.systemNo" auto-complete="off" placeholder="请输入系统编码"></el-input>
+          <el-input size="small" v-model="editForm.systemNo" auto-complete="off" placeholder="请输入系统编码"></el-input>
         </el-form-item>
         <el-form-item label="角色名称" prop="roleName">
-          <el-input v-model="editForm.roleName" auto-complete="off" placeholder="请输入角色名称"></el-input>
+          <el-input size="small" v-model="editForm.roleName" auto-complete="off" placeholder="请输入角色名称"></el-input>
         </el-form-item>
         <el-form-item label="角色代码" prop="roleNo">
-          <el-input v-model="editForm.roleNo" auto-complete="off" placeholder="请输入角色代码"></el-input>
+          <el-input size="small" v-model="editForm.roleNo" auto-complete="off" placeholder="请输入角色代码"></el-input>
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
-        <el-button @click='closeDialog("edit")'>取消</el-button>
-        <el-button type="primary" :loading="loading" class="title" @click="submitForm('editForm')">保存</el-button>
+        <el-button size="small" @click='closeDialog("edit")'>取消</el-button>
+        <el-button size="small" type="primary" :loading="loading" class="title" @click="submitForm('editForm')">保存</el-button>
       </div>
     </el-dialog>
     <!-- 菜单权限 -->
@@ -71,8 +70,8 @@
       <el-tree ref="tree" default-expand-all="" :data="RoleRight" :props="RoleRightProps" :default-checked-keys="checkmenu" node-key="id" show-checkbox>
       </el-tree>
       <div slot="footer" class="dialog-footer">
-        <el-button @click='closeDialog("perm")'>取消</el-button>
-        <el-button type="primary" :loading="loading" class="title" @click="menuPermSave">保存</el-button>
+        <el-button size="small" @click='closeDialog("perm")'>取消</el-button>
+        <el-button size="small" type="primary" :loading="loading" class="title" @click="menuPermSave">保存</el-button>
       </div>
     </el-dialog>
   </div>

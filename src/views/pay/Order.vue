@@ -11,30 +11,30 @@
     <!-- 搜索筛选 -->
     <el-form :inline="true" :model="formInline" class="user-search">
       <el-form-item label="搜索：">
-        <el-input v-model="formInline.machineNo" placeholder="输入终端编号"></el-input>
+        <el-input size="small" v-model="formInline.machineNo" placeholder="输入终端编号"></el-input>
       </el-form-item>
       <el-form-item>
-        <el-input v-model="formInline.orderNo" placeholder="输入订单号"></el-input>
+        <el-input size="small" v-model="formInline.orderNo" placeholder="输入订单号"></el-input>
       </el-form-item>
       <el-form-item>
-        <el-input v-model="formInline.transId" placeholder="输入交易单号"></el-input>
+        <el-input size="small" v-model="formInline.transId" placeholder="输入交易单号"></el-input>
       </el-form-item>
       <el-form-item>
-        <el-select v-model="formInline.payType" placeholder="请选择">
+        <el-select size="small" v-model="formInline.payType" placeholder="请选择">
           <el-option v-for="type in payType" :label="type.key" :value="type.value" :key="type.value"></el-option>
         </el-select>
       </el-form-item>
       <el-form-item>
-        <el-select v-model="formInline.orderStatus" placeholder="请选择">
+        <el-select size="small" v-model="formInline.orderStatus" placeholder="请选择">
           <el-option v-for="type in payway" :label="type.key" :value="type.value" :key="type.value"></el-option>
         </el-select>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" icon="el-icon-search" @click="search">搜索</el-button>
+        <el-button size="small" type="primary" icon="el-icon-search" @click="search">搜索</el-button>
       </el-form-item>
     </el-form>
     <!--列表-->
-    <el-table :data="listData" highlight-current-row v-loading="loading" border element-loading-text="拼命加载中" style="width: 100%;">
+    <el-table size="small" :data="listData" highlight-current-row v-loading="loading" border element-loading-text="拼命加载中" style="width: 100%;">
       <el-table-column align="center" type="index" width="60">
       </el-table-column>
       <el-table-column sortable prop="machineNo" label="终端编号" width="120" show-overflow-tooltip>
@@ -58,7 +58,6 @@
       <el-table-column sortable prop="addTime" label="创建时间" width="180" show-overflow-tooltip>
         <template slot-scope="scope">
           <div>{{scope.row.addTime|timestampToTime}}</div>
-          </el-switch>
         </template>
       </el-table-column>
       <el-table-column align="center" label="操作" min-width="150">
@@ -76,65 +75,65 @@
         <el-row>
           <el-col :span="12">
             <el-form-item label="公司编号">
-              <el-input v-model="editForm.deptId" auto-complete="off" placeholder="请输入名称" disabled></el-input>
+              <el-input size="small" v-model="editForm.deptId" auto-complete="off" placeholder="请输入名称" disabled></el-input>
             </el-form-item>
             <el-form-item label="订单号">
-              <el-input v-model="editForm.orderNo" auto-complete="off" placeholder="请输入商户号" disabled></el-input>
+              <el-input size="small" v-model="editForm.orderNo" auto-complete="off" placeholder="请输入商户号" disabled></el-input>
             </el-form-item>
             <el-form-item label="支付方式">
-              <el-input v-model="editForm.payType" auto-complete="off" placeholder="请输入商户号" disabled></el-input>
+              <el-input size="small" v-model="editForm.payType" auto-complete="off" placeholder="请输入商户号" disabled></el-input>
             </el-form-item>
             <el-form-item label="交易类型">
-              <el-input v-model="editForm.transType" auto-complete="off" placeholder="请输入微信子商户" disabled></el-input>
+              <el-input size="small" v-model="editForm.transType" auto-complete="off" placeholder="请输入微信子商户" disabled></el-input>
             </el-form-item>
             <el-form-item label="商品编号">
-              <el-input v-model="editForm.goodsNo" auto-complete="off" placeholder="请输入应用ID" disabled></el-input>
+              <el-input size="small" v-model="editForm.goodsNo" auto-complete="off" placeholder="请输入应用ID" disabled></el-input>
             </el-form-item>
             <el-form-item label="支付金额">
-              <el-input v-model="editForm.payAmount" auto-complete="off" placeholder="请输入通知回调" disabled></el-input>
+              <el-input size="small" v-model="editForm.payAmount" auto-complete="off" placeholder="请输入通知回调" disabled></el-input>
             </el-form-item>
             <el-form-item label="货道号">
-              <el-input v-model="editForm.aisleNo" auto-complete="off" placeholder="请输入加密类型" disabled></el-input>
+              <el-input size="small" v-model="editForm.aisleNo" auto-complete="off" placeholder="请输入加密类型" disabled></el-input>
             </el-form-item>
             <el-form-item label="买家标识">
-              <el-input v-model="editForm.openId" auto-complete="off" placeholder="请输入商户签名密钥" disabled></el-input>
+              <el-input size="small" v-model="editForm.openId" auto-complete="off" placeholder="请输入商户签名密钥" disabled></el-input>
             </el-form-item>
             <el-form-item label="子商户号">
-              <el-input v-model="editForm.subMchId" auto-complete="off" placeholder="请输入支付宝卖家" disabled></el-input>
+              <el-input size="small" v-model="editForm.subMchId" auto-complete="off" placeholder="请输入支付宝卖家" disabled></el-input>
             </el-form-item>
           </el-col>
           <el-col :span="12">
             <el-form-item label="公司名称">
-              <el-input v-model="editForm.deptName" auto-complete="off" placeholder="请输入名称" disabled></el-input>
+              <el-input size="small" v-model="editForm.deptName" auto-complete="off" placeholder="请输入名称" disabled></el-input>
             </el-form-item>
             <el-form-item label="交易单号">
-              <el-input v-model="editForm.transId" auto-complete="off" placeholder="请输入商户号" disabled></el-input>
+              <el-input size="small" v-model="editForm.transId" auto-complete="off" placeholder="请输入商户号" disabled></el-input>
             </el-form-item>
             <el-form-item label="子支付方式">
-              <el-input v-model="editForm.subPayType" auto-complete="off" placeholder="请输入商户号" disabled></el-input>
+              <el-input size="small" v-model="editForm.subPayType" auto-complete="off" placeholder="请输入商户号" disabled></el-input>
             </el-form-item>
             <el-form-item label="终端编号">
-              <el-input v-model="editForm.machineNo" auto-complete="off" placeholder="请输入微信子商户" disabled></el-input>
+              <el-input size="small" v-model="editForm.machineNo" auto-complete="off" placeholder="请输入微信子商户" disabled></el-input>
             </el-form-item>
             <el-form-item label="商品价格">
-              <el-input v-model="editForm.goodsPrice" auto-complete="off" placeholder="请输入应用ID" disabled></el-input>
+              <el-input size="small" v-model="editForm.goodsPrice" auto-complete="off" placeholder="请输入应用ID" disabled></el-input>
             </el-form-item>
             <el-form-item label="商品名称">
-              <el-input v-model="editForm.goodsName" auto-complete="off" placeholder="请输入通知回调" disabled></el-input>
+              <el-input size="small" v-model="editForm.goodsName" auto-complete="off" placeholder="请输入通知回调" disabled></el-input>
             </el-form-item>
             <el-form-item label="订单状态">
-              <el-input v-model="editForm.orderStatus" auto-complete="off" placeholder="请输入加密类型" disabled></el-input>
+              <el-input size="small" v-model="editForm.orderStatus" auto-complete="off" placeholder="请输入加密类型" disabled></el-input>
             </el-form-item>
             <el-form-item label="商户号">
-              <el-input v-model="editForm.mchId" auto-complete="off" placeholder="请输入商户签名密钥" disabled></el-input>
+              <el-input size="small" v-model="editForm.mchId" auto-complete="off" placeholder="请输入商户签名密钥" disabled></el-input>
             </el-form-item>
             <el-form-item label="编辑用户">
-              <el-input v-model="editForm.editUser" auto-complete="off" placeholder="请输入支付宝卖家" disabled></el-input>
+              <el-input size="small" v-model="editForm.editUser" auto-complete="off" placeholder="请输入支付宝卖家" disabled></el-input>
             </el-form-item>
           </el-col>
         </el-row>
         <el-form-item label="备注">
-          <el-input v-model="editForm.remark" auto-complete="off" placeholder="请输入微信证书路径" disabled></el-input>
+          <el-input size="small" v-model="editForm.remark" auto-complete="off" placeholder="请输入微信证书路径" disabled></el-input>
         </el-form-item>
       </el-form>
     </el-dialog>

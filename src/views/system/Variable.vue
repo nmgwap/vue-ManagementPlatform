@@ -12,18 +12,18 @@
     <el-form :inline="true" :model="formInline" class="user-search">
 
       <el-form-item label="搜索：">
-        <el-input v-model="formInline.varLable" placeholder="输入变量描述"></el-input>
+        <el-input size="small" v-model="formInline.varLable" placeholder="输入变量描述"></el-input>
       </el-form-item>
       <el-form-item label="">
-        <el-input v-model="formInline.varName" placeholder="输入变量名称"></el-input>
+        <el-input size="small" v-model="formInline.varName" placeholder="输入变量名称"></el-input>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" icon="el-icon-search" @click="search">搜索</el-button>
-        <el-button type="primary" icon="el-icon-plus" @click="handleEdit()">添加</el-button>
+        <el-button size="small" type="primary" icon="el-icon-search" @click="search">搜索</el-button>
+        <el-button size="small" type="primary" icon="el-icon-plus" @click="handleEdit()">添加</el-button>
       </el-form-item>
     </el-form>
     <!--列表-->
-    <el-table :data="listData" highlight-current-row v-loading="loading" border element-loading-text="拼命加载中" style="width: 100%;">
+    <el-table size="small" :data="listData" highlight-current-row v-loading="loading" border element-loading-text="拼命加载中" style="width: 100%;">
       <el-table-column align="center" type="selection" width="60">
       </el-table-column>
       <el-table-column sortable prop="varLable" label="变量描述" width="200">
@@ -35,7 +35,6 @@
       <el-table-column sortable prop="editTime" label="修改时间" width="200">
         <template slot-scope="scope">
           <div>{{scope.row.editTime|timestampToTime}}</div>
-          </el-switch>
         </template>
       </el-table-column>
       <el-table-column sortable prop="editUser" label="修改人" width="200">
@@ -53,18 +52,18 @@
     <el-dialog title="修改" :visible.sync="editFormVisible" width="30%" @click="closeDialog">
       <el-form label-width="120px" :model="editForm" :rules="rules" ref="editForm">
         <el-form-item label="变量描述" prop="varLable">
-          <el-input v-model="editForm.varLable" auto-complete="off" placeholder="变量描述"></el-input>
+          <el-input size="small" v-model="editForm.varLable" auto-complete="off" placeholder="变量描述"></el-input>
         </el-form-item>
         <el-form-item label="变量名称" prop="varName">
-          <el-input v-model="editForm.varName" auto-complete="off" placeholder="变量名称"></el-input>
+          <el-input size="small" v-model="editForm.varName" auto-complete="off" placeholder="变量名称"></el-input>
         </el-form-item>
         <el-form-item label="变量名称" prop="varValue">
-          <el-input v-model="editForm.varValue" auto-complete="off" placeholder="变量名称"></el-input>
+          <el-input size="small" v-model="editForm.varValue" auto-complete="off" placeholder="变量名称"></el-input>
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
-        <el-button @click="closeDialog">取消</el-button>
-        <el-button type="primary" :loading="loading" class="title" @click="submitForm('editForm')">保存</el-button>
+        <el-button size="small" @click="closeDialog">取消</el-button>
+        <el-button size="small" type="primary" :loading="loading" class="title" @click="submitForm('editForm')">保存</el-button>
       </div>
     </el-dialog>
   </div>

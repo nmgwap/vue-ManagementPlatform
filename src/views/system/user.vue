@@ -11,26 +11,26 @@
     <!-- 搜索筛选 -->
     <el-form :inline="true" :model="formInline" class="user-search">
       <el-form-item label="搜索：">
-        <el-select v-model="formInline.isLock" placeholder="请选择">
+        <el-select size="small" v-model="formInline.isLock" placeholder="请选择">
           <el-option label="全部" value=""></el-option>
           <el-option label="正常" value="N"></el-option>
           <el-option label="已锁定" value="Y"></el-option>
         </el-select>
       </el-form-item>
       <el-form-item label="">
-        <el-input v-model="formInline.userName" placeholder="输入用户名"></el-input>
+        <el-input size="small" v-model="formInline.userName" placeholder="输入用户名"></el-input>
       </el-form-item>
       <el-form-item label="">
-        <el-input v-model="formInline.userMobile" placeholder="输入手机号"></el-input>
+        <el-input size="small" v-model="formInline.userMobile" placeholder="输入手机号"></el-input>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" icon="el-icon-search" @click="search">搜索</el-button>
-        <el-button type="primary" icon="el-icon-plus" @click="handleEdit()">添加</el-button>
-        <el-button type="primary" @click="handleunit()">部门设置</el-button>
+        <el-button size="small" type="primary" icon="el-icon-search" @click="search">搜索</el-button>
+        <el-button size="small" type="primary" icon="el-icon-plus" @click="handleEdit()">添加</el-button>
+        <el-button size="small" type="primary" @click="handleunit()">部门设置</el-button>
       </el-form-item>
     </el-form>
     <!--列表-->
-    <el-table @selection-change="selectChange" :data="userData" highlight-current-row v-loading="loading" border element-loading-text="拼命加载中" style="width: 100%;">
+    <el-table size="small" @selection-change="selectChange" :data="userData" highlight-current-row v-loading="loading" border element-loading-text="拼命加载中" style="width: 100%;">
       <el-table-column align="center" type="selection" width="50">
       </el-table-column>
       <el-table-column align="center" sortable prop="deptName" label="公司" width="120">
@@ -48,7 +48,6 @@
       <el-table-column align="center" sortable prop="editTime" label="修改时间" min-width="120">
         <template slot-scope="scope">
           <div>{{scope.row.editTime|timestampToTime}}</div>
-          </el-switch>
         </template>
       </el-table-column>
       <el-table-column align="center" sortable prop="isLock" label="状态" min-width="50">
@@ -74,22 +73,22 @@
     <el-dialog :title="title" :visible.sync="editFormVisible" width="30%" @click='closeDialog("edit")'>
       <el-form label-width="80px" ref="editForm" :model="editForm" :rules="rules">
         <el-form-item label="用户名" prop="userName">
-          <el-input v-model="editForm.userName" auto-complete="off" placeholder="请输入用户名"></el-input>
+          <el-input size="small" v-model="editForm.userName" auto-complete="off" placeholder="请输入用户名"></el-input>
         </el-form-item>
         <el-form-item label="姓名" prop="userRealName">
-          <el-input v-model="editForm.userRealName" auto-complete="off" placeholder="请输入姓名"></el-input>
+          <el-input size="small" v-model="editForm.userRealName" auto-complete="off" placeholder="请输入姓名"></el-input>
         </el-form-item>
         <el-form-item label="角色" prop="roleId">
-          <el-select v-model="editForm.roleId" placeholder="请选择" class="userRole">
+          <el-select size="small" v-model="editForm.roleId" placeholder="请选择" class="userRole">
             <el-option label="公司管理员" value="1"></el-option>
             <el-option label="普通用户" value="2"></el-option>
           </el-select>
         </el-form-item>
         <el-form-item label="手机号" prop="userMobile">
-          <el-input v-model="editForm.userMobile" placeholder="请输入手机号"></el-input>
+          <el-input size="small" v-model="editForm.userMobile" placeholder="请输入手机号"></el-input>
         </el-form-item>
         <el-form-item label="邮件" prop="userEmail">
-          <el-input v-model="editForm.userEmail" placeholder="请输入邮箱地址"></el-input>
+          <el-input size="small" v-model="editForm.userEmail" placeholder="请输入邮箱地址"></el-input>
         </el-form-item>
         <el-form-item label="性别" prop="userSex">
           <el-radio v-model="editForm.userSex" label="男">男</el-radio>
@@ -97,8 +96,8 @@
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
-        <el-button @click='closeDialog("edit")'>取消</el-button>
-        <el-button type="primary" :loading="loading" class="title" @click="submitForm('editForm')">保存</el-button>
+        <el-button size="small" @click='closeDialog("edit")'>取消</el-button>
+        <el-button size="small" type="primary" :loading="loading" class="title" @click="submitForm('editForm')">保存</el-button>
       </div>
     </el-dialog>
     <!-- 数据权限 -->
@@ -106,8 +105,8 @@
       <el-tree ref="tree" default-expand-all="" :data="UserDept" :props="defaultProps" :default-checked-keys="checkmenu" node-key="id" show-checkbox>
       </el-tree>
       <div slot="footer" class="dialog-footer">
-        <el-button @click='closeDialog("perm")'>取消</el-button>
-        <el-button type="primary" :loading="loading" class="title" @click="menuPermSave">保存</el-button>
+        <el-button size="small" @click='closeDialog("perm")'>取消</el-button>
+        <el-button size="small" type="primary" :loading="loading" class="title" @click="menuPermSave">保存</el-button>
       </div>
     </el-dialog>
     <!-- 所属单位 -->
@@ -115,8 +114,8 @@
       <el-tree ref="tree" default-expand-all="" :data="UserDept" :props="defaultProps" @check-change="handleClick" :default-checked-keys="checkmenu" node-key="id" show-checkbox check-strictly>
       </el-tree>
       <div slot="footer" class="dialog-footer">
-        <el-button @click='closeDialog("unit")'>取消</el-button>
-        <el-button type="primary" :loading="loading" class="title" @click="unitPermSave">保存</el-button>
+        <el-button size="small" @click='closeDialog("unit")'>取消</el-button>
+        <el-button size="small" type="primary" :loading="loading" class="title" @click="unitPermSave">保存</el-button>
       </div>
     </el-dialog>
   </div>

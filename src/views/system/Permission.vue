@@ -11,25 +11,25 @@
     <!-- 搜索筛选 -->
     <el-form :inline="true" :model="formInline" class="user-search">
       <el-form-item label="搜索：">
-        <el-input v-model="formInline.permissionName" placeholder="输入权限名称"></el-input>
+        <el-input size="small" v-model="formInline.permissionName" placeholder="输入权限名称"></el-input>
       </el-form-item>
       <el-form-item label="">
-        <el-input v-model="formInline.permission" placeholder="输入权限CODE"></el-input>
+        <el-input size="small" v-model="formInline.permission" placeholder="输入权限CODE"></el-input>
       </el-form-item>
       <el-form-item label="角色：">
-        <el-select v-model="formInline.roleId" placeholder="请选择">
+        <el-select size="small" v-model="formInline.roleId" placeholder="请选择">
           <el-option selected label="请选择" value="0"></el-option>
           <el-option v-for="parm in userparm" :key="parm.roleId" :label="parm.roleName" :value="parm.roleId"></el-option>
         </el-select>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" icon="el-icon-search" @click="search">搜索</el-button>
-        <el-button type="primary" icon="el-icon-plus" @click="handleEdit()">添加</el-button>
-        <el-button type="primary" icon="el-icon-plus" @click="RolePermission()">配置权限</el-button>
+        <el-button size="small" type="primary" icon="el-icon-search" @click="search">搜索</el-button>
+        <el-button size="small" type="primary" icon="el-icon-plus" @click="handleEdit()">添加</el-button>
+        <el-button size="small" type="primary" icon="el-icon-plus" @click="RolePermission()">配置权限</el-button>
       </el-form-item>
     </el-form>
     <!--列表-->
-    <el-table @selection-change="selectChange" :data="listData" highlight-current-row v-loading="loading" border element-loading-text="拼命加载中" style="width: 100%;">
+    <el-table size="small" @selection-change="selectChange" :data="listData" highlight-current-row v-loading="loading" border element-loading-text="拼命加载中" style="width: 100%;">
       <el-table-column align="center" type="selection" width="60">
       </el-table-column>
       <el-table-column sortable prop="permissionName" label="权限名称" width="300">
@@ -39,7 +39,6 @@
       <el-table-column sortable prop="editTime" label="修改时间" width="300">
         <template slot-scope="scope">
           <div>{{scope.row.editTime|timestampToTime}}</div>
-          </el-switch>
         </template>
       </el-table-column>
       <el-table-column sortable prop="editUser" label="修改人" width="300">
@@ -57,15 +56,15 @@
     <el-dialog :title="title" :visible.sync="editFormVisible" width="30%" @click="closeDialog">
       <el-form label-width="120px" :model="editForm" :rules="rules" ref="editForm">
         <el-form-item label="权限名称" prop="permissionName">
-          <el-input v-model="editForm.permissionName" auto-complete="off" placeholder="权限名称"></el-input>
+          <el-input size="small" v-model="editForm.permissionName" auto-complete="off" placeholder="权限名称"></el-input>
         </el-form-item>
         <el-form-item label="权限CODE" prop="permission">
-          <el-input v-model="editForm.permission" auto-complete="off" placeholder="权限CODE"></el-input>
+          <el-input size="small" v-model="editForm.permission" auto-complete="off" placeholder="权限CODE"></el-input>
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
-        <el-button @click="closeDialog">取消</el-button>
-        <el-button type="primary" :loading="loading" class="title" @click="submitForm('editForm')">保存</el-button>
+        <el-button size="small" @click="closeDialog">取消</el-button>
+        <el-button size="small" type="primary" :loading="loading" class="title" @click="submitForm('editForm')">保存</el-button>
       </div>
     </el-dialog>
   </div>
